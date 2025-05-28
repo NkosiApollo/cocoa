@@ -1,1 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cocoa Home</title>
+    <link rel="stylesheet" href="style.css">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div id="hero">
+        <div class="navbar">
+            <img src="logo.png" class="logo">
+            <div class="user">
+                <button type="button">Explore</button>
+                <img src="user.png">
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="info">
+                <h1>Get Started</h1>
+                <p>Test your luck and try to pull a rare title.</p>
+            </div>
+        </div>
+
+        <div class="slider">
+            <img src="left-arrow.png" id="prev">
+            <div class="preview">
+                <img src="small.jpg" class="active thumbnail">
+                <img src="small2.jpg" class="thumbnail">
+                <img src="small3.jpg" class="thumbnail">
+                <img src="small4.jpg" class="thumbnail">
+                <img src="small5.jpg" class="thumbnail">
+            </div>
+            <img src="right-arrow.png" id="next">
+        </div>
+
+    </div>
+
+    <script>
+
+        var prev = document.getElementById("prev");
+        var next = document.getElementById("next");
+        var thumbnail = document.getElementsByClassName("thumbnail");
+        var hero = document.getElementById("hero");
+
+        var backgroundImg = new Array(
+            "bg1.jpg",
+            "bg2.jpg",
+            "bg3.jpg",
+            "bg4.jpg",
+            "bg5.jpg"
+        );
+        let i = 0;
+        next.onclick = function(){
+
+            if(i < 4){
+                hero.style.backgroundImage = 'url("'+backgroundImg[i+1]+'")'; 
+                thumbnail[i+1].classList.add("active");
+                thumbnail[i].classList.remove("active");
+                i++;
+            }
+        }
+        prev.onclick = function(){
+
+            if(i > 0){
+                hero.style.backgroundImage = 'url("'+backgroundImg[i-1]+'")'; 
+                thumbnail[i-1].classList.add("active");
+                thumbnail[i].classList.remove("active");
+                i--;
+            }
+        }
+
+    </script>
+    
+</body>
+</html>
